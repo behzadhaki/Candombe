@@ -23,7 +23,7 @@
                             "needsPlayhead": false,
                             "info": "Quantized MIDI input",
                             "custom_voices": ["Piano (low)","Repique (Mid)", "Chico (High)"],
-                            "custom_pitches": [36, 38, 42],
+                            "custom_pitches": [36, 38, 40],
                             "show_grid": true
                         },
                         {
@@ -36,7 +36,7 @@
                             "needsPlayhead": false,
                             "info": "Humanized MIDI output",
                             "custom_voices": ["Piano (low)","Repique (Mid)", "Chico (High)"],
-                            "custom_pitches": [36, 38, 42],
+                            "custom_pitches": [36, 38, 40],
                             "show_grid": true
                         }
                     ],
@@ -93,7 +93,7 @@
                             "label": "Chico",
                             "min": 0,
                             "max": 127,
-                            "default": 42,
+                            "default": 40,
                             "topLeftCorner": "Pc",
                             "bottomRightCorner": "Ti",
                             "show_label": true,

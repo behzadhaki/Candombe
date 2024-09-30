@@ -40,7 +40,8 @@ public:
 
         // load model
         if (!isModelLoaded) {
-            load("[Larger srcMasked 30prcnt] [bassGuiSynLead] no in vel_itzc90b6_080.pt");
+            load("candombeEncoder.pt");
+            model.eval();
         }
 
         // main deployment logic
@@ -58,13 +59,31 @@ public:
                 cout << "num2BarSegments: " << num2BarSegments << endl;
 
                 // run inference
-//                auto output = model.forward({hits.index({Slice(0, num2BarSegments), Slice(0, 32), Slice(0, 3)}).unsqueeze(0)});
-//                auto vels = output.toTuple()->elements()[0].toTensor();
-//                auto offs = output.toTuple()->elements()[1].toTensor();
+                // torch no grad
+                torch::NoGradGuard no_grad;
 
-                // Rand Values for now
-                auto vel = torch::rand({num2BarSegments, 32, 3});
-                auto off = torch::rand({num2BarSegments, 32, 3}) - 0.5f;
+                auto hit_in = hits.index({Slice(0, num2BarSegments), Slice(), Slice()});
+                cout << "hit_in shape: " << hit_in.sizes() << endl;
+
+                auto output = model.forward({hit_in});
+
+                cout << "output: "  << endl;
+
+                auto out_tuple = output.toTuple();
+                cout << "out_tuple: " << endl;
+
+                auto vel = out_tuple->elements()[1].toTensor();
+                cout << "vel: " << endl;
+
+                auto off = out_tuple->elements()[2].toTensor();
+                cout << "off: "  << endl;
+
+//                vel = torch::tanh(vel) / 2 + 0.5;
+//                off = torch::tanh(off) / 2;
+
+                vel = vel / 2 + 0.5;
+                off = off / 2;
+
 
                 // extract the velocities/offsets
                 // find non-zero hit indices
@@ -115,11 +134,11 @@ private:
 
     // voice map for visualization purposes only
     map<int, int> display_voice_maps = {
-        {0, 36}, {1, 38}, {2, 42}
+        {0, 36}, {1, 38}, {2, 40}
     };
 
     map<int, int> pitch2ix = {
-        {36, 0}, {38, 1}, {42, 2}
+        {36, 0}, {38, 1}, {40, 2}
     };
 
     bool updateInputFromMidiFile() {
