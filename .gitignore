@@ -29,3 +29,12 @@ workspace.xml
 xcuserdata
 /Apps/SerumStandAlone/Builds/MacOSX/RecentFilesMenuTemplate.nib
 /PluginCode/img/.$JuceButtons.drawio.bkp
+
+# Cmake Generated Files
+CPM_modules
+HumanizeCandombe_artefacts
+_deps
+compile_commands.json
+cpm-package-lock.cmake
+libtorch-*.zip
+torch

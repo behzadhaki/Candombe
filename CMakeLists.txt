@@ -45,9 +45,9 @@ elseif(UNIX AND NOT APPLE) # For Linux
 endif()
 
 # Fetching JUCE
-# CPMAddPackage("gh:juce-framework/JUCE#develop")
+CPMAddPackage("gh:juce-framework/JUCE#develop")
 # rn I'm using version 7.0.5 on commit # 69795dc
-CPMAddPackage("gh:juce-framework/JUCE#69795dc")
+# CPMAddPackage("gh:juce-framework/JUCE#69795dc")
 # Modules and subdirectories
 
 juce_add_modules(shared_plugin_helpers)
