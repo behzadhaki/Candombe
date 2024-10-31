@@ -17,7 +17,7 @@ target_sources(${BaseTargetName} PRIVATE
 # ------------ Torch Installation -------------
 # ---------------------------------------------
 
-set(TORCH_VERSION 2.0.1)
+set(TORCH_VERSION 2.2.1)
 
 # Libtorch Installation Path for Windows and MacOS
 if(MSVC)
@@ -73,9 +73,6 @@ else()
 
     elseif(APPLE)
         message(STATUS "Downloading libtorch for MacOS...")
-
-        include_directories("/Users/anmolmishra/Desktop/ISMIR/latin-groove-vst/torch/test/libtorch/include")
-        include_directories("/Users/anmolmishra/Desktop/ISMIR/latin-groove-vst/torch/test/libtorch/include/torch/csrc/api/include")  # for API headers
 
         # Download x86 libtorch here (ROCm and CUDA are not supported):
         # https://download.pytorch.org/libtorch/cpu/libtorch-macos-x86_64-2.2.1.zip

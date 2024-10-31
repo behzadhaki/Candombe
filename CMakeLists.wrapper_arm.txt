@@ -17,7 +17,7 @@ target_sources(${BaseTargetName} PRIVATE
 # ------------ Torch Installation -------------
 # ---------------------------------------------
 
-set(TORCH_VERSION 2.0.1)
+set(TORCH_VERSION 2.2.1)
 
 # Libtorch Installation Path for Windows and MacOS
 if(MSVC)
