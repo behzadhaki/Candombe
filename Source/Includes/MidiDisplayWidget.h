@@ -975,7 +975,7 @@ public:
                 g.fillRect(getLocalBounds());
                 // Draw a black border around the rectangle
                 g.setColour(juce::Colours::black);
-                g.drawRect(getLocalBounds().toFloat(), 0.1f);
+                g.drawRect(getLocalBounds().toFloat(), 1);
             } else {
                 // Prepare to draw an arrow for note-on or note-off
                 juce::Path arrowPath;
@@ -1000,7 +1000,7 @@ public:
 
                 // Optionally, draw a black border around the arrow if needed
                 g.setColour(juce::Colours::black);
-                g.strokePath(arrowPath, juce::PathStrokeType(0.1f));
+                g.strokePath(arrowPath, juce::PathStrokeType(1.0f));
             }
         } else {
             // draw only if complete note or hanging note on
@@ -1012,7 +1012,7 @@ public:
             g.fillEllipse(getLocalBounds().toFloat());
             // Draw a black border around the circle
             g.setColour(juce::Colours::black);
-            g.drawEllipse(getLocalBounds().toFloat(), 0.1f);
+            g.drawEllipse(getLocalBounds().toFloat(), 1);
 
         }
     }
@@ -1538,10 +1538,6 @@ public:
         std::transform(paramID.begin(), paramID.end(), paramID.begin(), ::toupper);
         needsPlayhead = midiDisplayJson["needsPlayhead"].get<bool>();
         pianoRollComponent.noteInfoLabel = noteInfoLabel;
-        // check if useSameColorForAllVoices is set
-        if (midiDisplayJson.contains("useSameColorForAllVoices")) {
-            pianoRollComponent.sharpNoteColour = midiDisplayJson["useSameColorForAllVoices"].get<bool>() ? juce::Colours::whitesmoke : juce::Colours::lightgrey;
-        }
         addAndMakeVisible(playheadVisualizer);
         addAndMakeVisible(pianoRollComponent);
         addAndMakeVisible(pianoKeysComponent);

@@ -492,7 +492,7 @@ public:
     }
 
     static double n_samples_to_ppq(double audioSamplePos, double qpm, double sample_rate) {
-        auto tmp_ppq = audioSamplePos * qpm / (60.0f * sample_rate);
+        auto tmp_ppq = audioSamplePos * qpm / (60 * sample_rate);
         return tmp_ppq;
     }
 

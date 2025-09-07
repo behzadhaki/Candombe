@@ -327,6 +327,7 @@ namespace thread_configurations::SingleMidiThread {
 const double waitTimeBtnIters{
     loaded_json["deploy_method_min_wait_time_between_iterations"]};
 }
+
 namespace thread_configurations::APVTSMediatorThread {
 // wait time between iterations in ms
 const double waitTimeBtnIters{1};
@@ -338,9 +339,9 @@ const double waitTimeBtnIters{1};
  *  if the queue is full, the producer thread will overwrite the oldest element
  */
 namespace queue_settings {
-constexpr int NMP2DPL_que_size{512*32};    // same as NMP2DPL que size
+constexpr int NMP2DPL_que_size{512};    // same as NMP2DPL que size
     // same as NMP2DPL que size
-constexpr int DPL2NMP_que_size{512*32};    // same as DPL2NMP que size
+constexpr int DPL2NMP_que_size{512};    // same as DPL2NMP que size
     // same as DPL2NMP que size
 constexpr int APVM_que_size{4};    // same as APVM que size
     // same as APVM que size

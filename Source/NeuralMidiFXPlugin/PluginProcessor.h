@@ -3,7 +3,6 @@
 #include "shared_plugin_helpers/shared_plugin_helpers.h"
 //#include <vector>
 #include <torch/torch.h>
-#include "../Includes/Configs_Model.h"
 #include "../../PluginCode/deploy.h"
 #include "../Includes/APVTSMediatorThread.h"
 #include "../Includes/LockFreeQueue.h"

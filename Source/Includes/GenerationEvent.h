@@ -101,9 +101,9 @@ struct PlaybackPolicies {
 
     // Checks if data is ready for transmission
     [[nodiscard]] bool IsReadyForTransmission() const {
-//        assert (PlaybackPolicy != -1 && "PlaybackPolicy Not Set");
-//        assert (TimeUnit != -1 && "TimeUnit Not Set");
-//        assert (OverwritePolicy != -1 && "OverwritePolicy Not Set");
+        assert (PlaybackPolicy != -1 && "PlaybackPolicy Not Set");
+        assert (TimeUnit != -1 && "TimeUnit Not Set");
+        assert (OverwritePolicy != -1 && "OverwritePolicy Not Set");
 
         return PlaybackPolicy != -1 && TimeUnit != -1 && OverwritePolicy != -1;
     }
